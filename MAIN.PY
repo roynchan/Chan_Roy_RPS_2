@@ -1,52 +1,64 @@
 from random import choices, randint
-from gameComponents import winLose
-playerLives = 5
-computerLives = 5
-player = False 
+from gameComponents import winLose, gameVars
 
-while player is False: 
-    player = input("Choose your weapon: rock, paper or scissors: ")
-    print("player chose :" + player)
-    choices = ["rock","paper","scissors"]
-    computer = choices[randint(0,2)]
-    print("computer chose : " + computer)
-    if(computer == player):
-        print("tie! try again")
+while gameVars.player is False: 
+    gameVars.player = input("Choose your weapon: rock, paper or scissors: ")
+    print("===============================")
+    print("player chose :" + gameVars.player)
+    gameVars.computer = gameVars.choices[randint(0,2)]
+    print("computer chose : " + gameVars.computer)
 
-    elif (player == "rock"):
-        if(computer == "paper"):
-            print("you lose !")
-            playerLives = playerLives - 1
+    if(gameVars.computer == gameVars.player):
+        print("===============================")
+        print("* TIE ! TRY AGAIN ")
+        print("===============================")
+
+    elif (gameVars.player == "rock"):
+        if(gameVars.computer == "paper"):
+            print("===============================")
+            print("* YOU LOSE !")
+            print("===============================")
+            gameVars.playerLives = gameVars.playerLives - 1
         else:
-            print("you win!")
-            computerLives = computerLives - 1
+            print("===============================")
+            print("* YOU WIN !")
+            print("===============================")
+            gameVars.computerLives = gameVars.computerLives - 1
 
-    elif (player == "scissors"):
-        if(computer == "rock"):
-            print("you lose !")
-            playerLives = playerLives - 1
+    elif (gameVars.player == "scissors"):
+        if(gameVars.computer == "rock"):
+            print("===============================")
+            print("* YOU LOSE !")
+            print("===============================")
+            gameVars.playerLives = gameVars.playerLives - 1
         else: 
-            print("you win!") 
-            computerLives = computerLives - 1
+            print("===============================")
+            print("* YOU WIN !") 
+            print("===============================")
+            gameVars.computerLives = gameVars.computerLives - 1
 
-    elif (player == "paper"):
-        if(computer == "scissors"):
-            playerLives = playerLives - 1
-            print("you lose !")
+    elif (gameVars.player == "paper"):
+        if(gameVars.computer == "scissors"):
+            gameVars.playerLives = gameVars.playerLives - 1
+            print("===============================")
+            print("* YOU LOSE !")
         else: 
-            print("you win!") 
-            computerLives = computerLives - 1
+            print("===============================")
+            print("* YOU WIN !") 
+            print("===============================")
+            gameVars.computerLives = gameVars.computerLives - 1
         
-    print("computer lives" + str(computerLives))
-    print("player lives" + str(playerLives))
+    print("---- computer lives: " + str(gameVars.computerLives))
+    print("---- player lives: " + str(gameVars.playerLives))
+    print("===============================")
 
-    if playerLives == 0:
+    if gameVars.playerLives == 0:
             winLose.winorlose("lost")
 
-    elif computerLives == 0:
+    elif gameVars.computerLives == 0:
             winLose.winorlose("won")
 
    
-    player = False 
+    gameVars.player = False 
 
 
