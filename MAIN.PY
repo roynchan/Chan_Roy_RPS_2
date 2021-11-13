@@ -1,7 +1,8 @@
 from random import choices, randint
 playerLives = 5
 computerLives = 5
-
+player = False 
+while player is False: 
     player = input("Choose your weapon: rock, paper or scissors: ")
     print("player chose :" + player)
     choices = ["rock","paper","scissors"]
@@ -35,7 +36,7 @@ computerLives = 5
             computerLives = computerLives - 1
         
     print("computer lives" + str(computerLives))
-    print("player lives" + str(playerLives)) 
+    print("player lives" + str(playerLives))
 
     if playerLives == 0:
             print("you lost! would you like to play again ?")
@@ -55,7 +56,7 @@ computerLives = 5
                 print("better luck next time!")
                 exit()
             else: 
-                playerLives = 4
+                playerLives = 5
                 computerLives = 5
                 player = False
    
