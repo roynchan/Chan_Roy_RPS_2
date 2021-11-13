@@ -1,24 +1,8 @@
 from random import choices, randint
+from gameComponents import winLose
 playerLives = 5
 computerLives = 5
 player = False 
-
-
-def winorlose(status): 
-    print("You " + status + "! Would you like to play again ?")
-    choice = input(" Y / N? ")
-
-    global playerLives
-    global computerLives
-    global player
-
-    if choice == "n":
-        print("better luck next time!")
-        exit()
-    else: 
-        playerLives = 5
-        computerLives = 5
-        player = False
 
 while player is False: 
     player = input("Choose your weapon: rock, paper or scissors: ")
@@ -57,10 +41,10 @@ while player is False:
     print("player lives" + str(playerLives))
 
     if playerLives == 0:
-            winorlose("lost")
+            winLose.winorlose("lost")
 
     elif computerLives == 0:
-            winorlose("won")
+            winLose.winorlose("won")
 
    
     player = False 
