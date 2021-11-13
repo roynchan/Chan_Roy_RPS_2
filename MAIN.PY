@@ -35,7 +35,7 @@ computerLives = 5
             computerLives = computerLives - 1
         
     print("computer lives" + str(computerLives))
-    print("player lives" + str(playerLives))
+    print("player lives" + str(playerLives)) 
 
     if playerLives == 0:
             print("you lost! would you like to play again ?")
@@ -55,7 +55,7 @@ computerLives = 5
                 print("better luck next time!")
                 exit()
             else: 
-                playerLives = 5
+                playerLives = 4
                 computerLives = 5
                 player = False
    
